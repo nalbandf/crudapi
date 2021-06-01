@@ -1,6 +1,8 @@
 package com.galvanize.crudapi.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,16 +22,19 @@ public class User {
 
     }
 
-    public User(Long id, String email) {
+    public User(Long id, String email, String password) {
         this.id = id;
         this.email = email;
+        this.password = password;
     }
+
 
     @JsonIgnore
     public String getPassword() {
         return password;
     }
 
+    @JsonProperty
     public void setPassword(String password) {
         this.password = password;
     }
